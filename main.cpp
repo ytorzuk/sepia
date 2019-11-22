@@ -5,10 +5,10 @@
 
 using namespace std;
 
-int main()
+int main(int argc, const char ** argv)
 {
     TGAImage input;
-    input.read_tga_file("/home/ytorzuk/image.tga");
+    input.read_tga_file(argv[1]);
     TGAImage output(input.get_width(), input.get_height(), input.get_bytespp());
 
     auto cpuStart = std::chrono::system_clock::now();
@@ -25,7 +25,7 @@ int main()
     std::chrono::duration<double> gpuDiff = gpuEnd-gpuStart;
     std::cout << "Time to apply sepia effect on GPU to an image: " << gpuDiff.count() << " s\n";
 
-    output.write_tga_file("/home/ytorzuk/output.tga");
+    output.write_tga_file(argv[2]);
 
     return 0;
 }
