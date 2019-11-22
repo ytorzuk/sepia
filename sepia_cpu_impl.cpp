@@ -9,9 +9,9 @@ void applySepia(const unsigned char * inBuffer, unsigned width, unsigned height,
         {
             unsigned cIdx = ( row * width + col ) * 3;
 
-            float b = *( inBuffer + cIdx     );
-            float g = *( inBuffer + cIdx + 1 );
-            float r = *( inBuffer + cIdx + 2 );
+            unsigned char b = *( inBuffer + cIdx     );
+            unsigned char g = *( inBuffer + cIdx + 1 );
+            unsigned char r = *( inBuffer + cIdx + 2 );
 
             *( outBuffer + cIdx     ) = .274f * r + .134f * g + .192f * b; // Red channel
             *( outBuffer + cIdx + 1 ) = .346f * r + .486f * g + .168f * b; // Green channel
